@@ -1,17 +1,16 @@
 
-const http = require("http");
+const express = require("express");
+const app = express();
 
-const server = http.createServer((req, res) =>{
-    if(req.url == "/about"){
-        console.log("hello i'm abhinav bhardwaj")
-    }
-    if(req.url == "/contact"){
-        console.log("i'm alian, i have not contact details")
-    }
-    res.end("request heated on the server");
+app.get("/about", (req,res) =>{
+    res.send("this is about page")
 })
 
-server.listen(3000, (req, res) =>{
-    console.log("server staretd")
+app.get('/profile', (req, res) =>{
+    res.send("getting profile")
+})
+
+app.listen(3000, (req, res) =>{
+    console.log("server started")
 })
 
