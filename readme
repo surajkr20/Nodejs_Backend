@@ -56,3 +56,14 @@ app.use((req, res, next) =>{
 
 Think of it like a CCTV for your server — it shows what requests are coming in, from where, and how the server is responding.
 
+<!-- all types of request -->
+
+1. get-request => taking data from server to backend, receive data in req.query
+2. post-request => taking data from frontend to backend, receive data in req.body
+ 
+    #by default any form calling get request - and if you want to calling post request then put method - 'post' in html attributes
+    // for reading req.body data
+        app.use(express.json());
+        app.use(express.urlencoded({extended: true}))
+
+#static files - without any restriction, authentication - direct accessible on frontend after requesting server
