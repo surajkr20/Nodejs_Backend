@@ -43,7 +43,7 @@ You write less code and get more features like:
 =>> This is a global middleware(app.use) — it runs for every route.
 
 app.use((req, res, next) =>{
-    res.send("this is a middleware") // after execute this line no request goes next route
+    res.send("this is a middleware") // after execute this line does not goes request next route
     const a = 2;
     const b = 4;
     console.log(a + b)
