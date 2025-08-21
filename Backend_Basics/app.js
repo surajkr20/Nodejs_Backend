@@ -50,7 +50,25 @@ app.get('/get-users', (req, res) =>{
     })
 })
 
+// update
+app.get('/update', async (req, res) =>{
+    
+    await UserModel.findOneAndUpdate({
+        _id: "68a665834eb42f468063f621"
+    }, {
+        username: "surajkr34"
+    })
 
+    res.send("user updated")
+})
+
+// delete user
+app.get('/delete-user', async (req, res) =>{
+    await UserModel.findOneAndDelete({
+        username: "abhinav.bhardwaaj"
+    })
+    res.send("user deleted")
+})
 
 app.listen(3000, (req, res) =>{
     console.log("server started")
