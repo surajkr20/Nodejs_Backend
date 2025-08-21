@@ -29,10 +29,28 @@ app.get('/hello', (req, res,) =>{
     res.send("data send from form-1..")
 })
 
-app.post('/get-form-data', (req, res)=>{
-    console.log(req.body);
-    res.send("data received from form-2..")
+// create users
+app.post('/register', async (req, res)=>{
+    const {username, email, password, gender} = req.body;
+
+    const data = await UserModel.create({
+        username: username,
+        email: email,
+        password: password,
+        gender: gender
+    })
+
+    res.send(data);
 })
+
+// read users
+app.get('/get-users', (req, res) =>{
+    UserModel.find().then((user)=>{
+        res.send(user)
+    })
+})
+
+
 
 app.listen(3000, (req, res) =>{
     console.log("server started")
