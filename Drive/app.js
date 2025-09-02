@@ -1,16 +1,29 @@
-require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
-const UserRoute = require('./routes/user.routes');
-app.set("view engine", 'ejs');
-
 const port = process.env.PORT;
-app.use('/user', UserRoute);
+const userRoutes = require('./routes/user.routes');
+
+// ejs file setup
+app.set('view engine', "ejs");
+app.use(express.static('public'));
+
+// set up for req.body data
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
+// routes
+app.use('/user', userRoutes);
 
 app.get('/', (req, res)=>{
-    res.send("Home route")
+    res.render('index')
 })
 
-app.listen(port, ()=>{
-    console.log(`server listen at ${port}`)
+app.post('/get-form-data', (req, res) =>{
+    console.log(req.body)
 })
+
+app.listen(port, () => {
+  console.log(`app listen at port ${port}`);
+});

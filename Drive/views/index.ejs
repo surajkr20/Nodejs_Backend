@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../public/style.css">
 </head>
 <body>
     
+    <form id="container" method="post" action="/get-form-data">
+        <div class="form-container">
+            <input type="text" placeholder="FirstName" name="firstname">
+            <input type="text" placeholder="LastName" name="lastname">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="../public/assets/script.js"></script>
 </body>
 </html>
