@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT;
 const userRoutes = require('./routes/user.routes');
+const dbConnect = require('./config/db')
+dbConnect();
 
 // ejs file setup
 app.set('view engine', "ejs");
